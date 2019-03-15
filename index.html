@@ -365,7 +365,8 @@ height:50vh;
         </a>
         <div class="abstract-content">
             1. 原理推导&emsp;&emsp;卡尔曼滤波器(Kalman filter)是一种利用外部观测的系统状态对线性系统模型预测的系统状态进行反馈修正，以得到系统状态的最优估计的算法。卡尔曼滤波使用前提：(1)系统是线性系统。（2）噪声是高斯噪声。&emsp;&emsp;系统数学模型不可能考虑所有情况，因此通过系统模型预测的系统状态不可能绝对准确，会包含噪声。线性离散控制系统可用如下方程描述：
- &emsp;&emsp;注：A为系数矩阵，$A \in R^{m \times m}$。$\widehat{\mathcal{X}}_{k}^{-}$表示k-1时刻对k时刻状态x的先验估计，$\h...
+
+\hat{x}_{k}^{-}=A x_{k-1}+B u_{k-1}+w_{k-1} \cdots \cdots (2-1) &emsp;&emsp;注：A为系数矩阵，$A \in R^{m \...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -676,7 +677,23 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+</body>
 </html>
 
 
