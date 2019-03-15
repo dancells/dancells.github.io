@@ -359,21 +359,17 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/11/hello-world/">
+        <a class="abstract-title" href="/2019/03/15/Kalman滤波器/">
             
-                <span>Hello World</span>
+                <span>Kalman滤波器</span>
         </a>
         <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
+            #1. 原理推导&emsp;&emsp;卡尔曼滤波器(Kalman filter)是一种利用外部观测的系统状态对线性系统模型预测的系统状态进行反馈修正，以得到系统状态的最优估计的算法。卡尔曼滤波使用前提：(1)系统是线性系统。（2）噪声是高斯噪声。&emsp;&emsp;系统数学模型不可能考虑所有情况，因此通过系统模型预测的系统状态不可能绝对准确，会包含噪声。线性离散控制系统可用如下方程描述：$$\hat{x}{k}^{-}=A x{k-1}+B u_{k-1}+w_{k-1}$$ &emsp;&emsp;注：A为系数矩阵，$A \in R^{m \times m}$。$\widehat...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/11</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/15</span>
             </div>
             <!-- tags  -->
             
@@ -605,7 +601,7 @@ More...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/11</span><a class="archive-post-title" href="/2019/03/11/hello-world/">Hello World</a>
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2019/03/15/Kalman滤波器/">Kalman滤波器</a>
         </li>
     
     </ul></div>
