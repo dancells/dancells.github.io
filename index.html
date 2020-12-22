@@ -45,14 +45,14 @@
         overflow:hidden
     }
     .time-box {
-        width: 400px;
+        width: 650px;
         height: 100px;
         display : inline-block;
         margin-right: 0;
     }
     .cont {
         color:  rgb(1,196,162);
-        font-size: 30px;
+        font-size: 50px;
         width: 200%;
         animation: gun 3s linear infinite;
     }
@@ -86,8 +86,11 @@
         return str;
     }
     window.onload = function() {
-        var timer = document.getElementById("timer");
-        timer.innerHTML = current();
+        var time = current();
+        var timer1 = document.getElementById("timer1");
+        var timer2 = document.getElementById("timer2");
+        timer1.innerHTML = time;
+        timer2.innerHTML = time;
     }
     function gohome() {
       window.location.href = "https://smaco2.uestc.edu.cn/wx/genQrcode?t="+new Date().getTime();
@@ -102,7 +105,7 @@
     <h1 class="title">研究生用户，入校授权有效！</h1>
     <hr />
     <div>
-        <div id="input">
+        <div class="input" id="input">
             <input id="name" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
             <button class="btn" onclick="re_name()">确认</button>
         </div>
@@ -122,8 +125,8 @@
             <div class="test">
                 <div class="time-box">
                     <div class="cont">
-                        <p id="timer">2020-12-22 12:00:00</p>
-                        <p id="timer">2020-12-22 12:00:00</p>
+                        <p style="margin: 0;" id="timer1">2020-12-22 12:00:00</p>
+                        <p style="margin: 0;" id="timer2">2020-12-22 12:00:00</p>
                     </div>
                 </div>
             </div>
