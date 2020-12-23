@@ -108,16 +108,25 @@
     }
     function re_name(){
         document.getElementById("user").textContent = document.getElementById("name").value;
+        if(document.getElementById("inout").checked == true){
+            document.getElementById("title").textContent = "研究生用户，出校授权有效！"
+        }
+
         document.getElementById("input").remove()
     }
 </script>
 </head>
 <body>
-    <h1 class="title">研究生用户，入校授权有效！</h1>
+    <h1 class="title" id="title">研究生用户，入校授权有效！</h1>
     <hr />
     <div>
         <div class="input" id="input">
-            <input id="name" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            <div>
+                <input id="name" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            </div>
+            <div style="font-size: 45px;">
+                <input id="inout" style="zoom:200%" type="checkbox" name="inout" value="in" checked />出校?
+            </div>
             <button class="btn" onclick="re_name()">确认</button>
         </div>
         <div class="item">
