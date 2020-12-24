@@ -67,7 +67,7 @@
         margin-left:auto;
     }
     .time-box {
-        width: 600px;
+        width: 550px;
         height: auto;
         display : inline-block;
     }
@@ -96,15 +96,18 @@
     }
 </style>
 <script type="text/javascript">
+    function add0(m){
+        return m<10?'0'+m:m
+    }
     function current() {
         var d = new Date(),
             str = '';
         str += d.getFullYear() + '-'; //获取当前年份 
-        str += d.getMonth() + 1 + '-'; //获取当前月份（0——11） 
-        str += d.getDate() + ' ';
-        str += d.getHours() + ':';
-        str += d.getMinutes() + ':';
-        str += d.getSeconds();
+        str += add0(d.getMonth() + 1) + '-'; //获取当前月份（0——11） 
+        str += add0(d.getDate()) + ' ';
+        str += add0(d.getHours()) + ':';
+        str += add0(d.getMinutes()) + ':';
+        str += add0(d.getSeconds());
         return str;
     }
     window.onload = function() {
