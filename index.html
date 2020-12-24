@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <title>平安成电智慧通行</title>
 <style>
+    #page{
+        display: none;
+    }
+    .input{
+        margin-top: 300px;
+    }
+
+    .input button{
+        margin-right: 100px;
+        float: right;
+    }
     .title {
         color: rgb(0,129,1);
         font-size: 65px;
@@ -113,23 +124,25 @@
                 document.getElementById("title").textContent = "研究生用户，出校授权有效！"
             }
             document.getElementById("input").remove()
+            var page = document.getElementById("page");
+            page.style.display = 'block'
         }  
     }
 </script>
 </head>
 <body>
-    <h1 class="title" id="title">研究生用户，入校授权有效！</h1>
-    <hr />
-    <div>
-        <div class="input" id="input">
-            <div  style="font-size: 45px;display: flex;align-items: center;">
-                姓名：<input id="name" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
-                授权码：<input id="code" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
-                出校? <input id="inout" style="zoom:200%" type="checkbox" name="inout" value="in" checked />
-                
-            </div>
-            <button class="btn" onclick="re_name()">确认</button>
+    <div class="input" id="input">
+        <div  style="font-size: 45px;display: flex;align-items: center;">
+            姓名：<input id="name" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            授权码：<input id="code" style="height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            出校? <input id="inout" style="zoom:200%" type="checkbox" name="inout" value="in" checked />
+            
         </div>
+        <button class="btn" onclick="re_name()">确认</button>
+    </div>
+    <div id="page">
+        <h1 class="title" id="title">研究生用户，入校授权有效！</h1>
+        <hr />
         <div class="item">
             <div class="key">
                 <img src="user.svg">
@@ -158,16 +171,12 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        
-    <div style="clear: both;text-align:center">
-        <button class="btn" onclick="gohome()">前往个人二维码</button>
-    </div>
-    <div style="text-align:center;margin-top: 50px;">
-        <img  src="uestc.png" height="150px">
-    </div>
-
+        <div style="clear: both;text-align:center">
+            <button class="btn" onclick="gohome()">前往个人二维码</button>
+        </div>
+        <div style="text-align:center;margin-top: 50px;">
+            <img  src="uestc.png" height="150px">
+        </div>
     </div>
 </body>
 </html>
