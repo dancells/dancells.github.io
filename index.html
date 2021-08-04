@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>平安成电智慧通行</title>
+<style>
+    #page{
+        display: none;
+    }
+    .input{
+        margin-top: 300px;
+    }
+
+    .input button{
+        margin-right: 100px;
+        float: right;
+    }
+    .title {
+        color: rgb(0,129,1);
+        font-size: 65px;
+        padding: 130px 10px 90px 25px;
+    }
+    .item{
+        height: 100px;
+        padding: 10px 20px 10px 20px;
+        display: flex;
+    }
+
+    .btn {
+        background-color: rgb(1,196,162);
+        color: white;
+        font-size: 35px;
+        border-radius: 10px;
+        border: solid 1px rgb(1,196,162);
+        margin-top: 50px;
+        padding: 25px 50px 25px 50px;
+        box-shadow: 0px 5px 5px #cecece;
+    }
+    .key{
+        display: flex;
+        align-items: center;
+    }
+    .key img{
+        height: 65px;
+        padding: 0px 30px 0px 0px;
+    }
+    .label{
+        height: 100px;
+        font-size: 42px;
+        display: flex;
+        align-items: center;
+    }
+    .value{
+        width: 52vw;
+        height: 100px;
+        font-size: 65px;
+        font-weight: bold;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin-left:auto;
+    }
+    .test{
+        width: 52vw;
+        overflow: hidden;
+        margin-left:auto;
+    }
+    .time-box {
+        width: 550px;
+        height: auto;
+        display : inline-block;
+    }
+    .cont {
+        color:  rgb(1,196,162);
+        font-size: 50px;
+        font-weight: bold;
+        width: 200%;
+        animation: gun 3s linear infinite;
+    }
+    .cont p {
+        position: absolute;
+    }
+    .cont p:first-child {
+        left: 0;
+    }
+    .cont p:last-child {
+        left: 50%;
+    }
+    
+    @keyframes gun {
+        0% {}
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>
+<script type="text/javascript">
+    function add0(m){
+        return m<10?'0'+m:m
+    }
+    function current() {
+        var d = new Date(),
+            str = '';
+        str += d.getFullYear() + '-'; //获取当前年份 
+        str += add0(d.getMonth() + 1) + '-'; //获取当前月份（0——11） 
+        str += add0(d.getDate()) + ' ';
+        str += add0(d.getHours()) + ':';
+        str += add0(d.getMinutes()) + ':';
+        str += add0(d.getSeconds());
+        return str;
+    }
+    window.onload = function() {
+        var time = current();
+        var timer1 = document.getElementById("timer1");
+        var timer2 = document.getElementById("timer2");
+        timer1.innerHTML = time;
+        timer2.innerHTML = time;
+    }
+    function gohome() {
+      window.location.href = "https://smaco2.uestc.edu.cn/wx/genQrcode?t="+new Date().getTime();
+    }
+    function re_name(){
+        if(document.getElementById("code").value == "159753"){
+            document.getElementById("user").textContent = document.getElementById("name").value;
+            if(document.getElementById("inout").checked == true){
+                document.getElementById("title").textContent = "研究生用户，出校授权有效！"
+            }
+            document.getElementById("input").remove()
+            var page = document.getElementById("page");
+            page.style.display = 'block'
+        }  
+    }
+</script>
+</head>
+<body>
+    <div class="input" id="input">
+        <div  style="font-size: 45px;display: flex;align-items: center;">
+            姓名：<input id="name" style="font-size:45px;width:20vw;height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            授权码：<input id="code" style="font-size:45px;width:20vw;height: 50px;border: solid rgb(1,196,162) 2px;"/>
+            出校? <input id="inout" style="zoom:200%" type="checkbox" name="inout" value="in" checked />
+            
+        </div>
+        <button class="btn" onclick="re_name()">确认</button>
+    </div>
+    <div id="page">
+        <h1 class="title" id="title">研究生用户，入校授权有效！</h1>
+        <hr />
+        <div class="item">
+            <div class="key">
+                <img src="user.svg">
+                <span class="label">用户姓名</span>
+            </div>
+            <div class="value"><div  id="user" style="clear: both; margin-left: auto;">研究生</div></div>
+        </div>
+        <div class="item">
+            <div class="key">
+                <img src="group.svg">
+                <span class="label">登记名称</span>
+            </div>
+            <div class="value"><div style="clear: both; margin-left: auto;">研究生（硕士）</div></div>
+        </div>
+        <div class="item">
+            <div class="key">
+                <img src="time.svg">
+                <span class="label">登记时间</span>
+            </div>  
+            <div class="test">
+                <div class="time-box">
+                    <div class="cont">
+                        <p style="margin: 0;" id="timer1">2020-12-22 12:00:00</p>
+                        <p style="margin: 0;" id="timer2">2020-12-22 12:00:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both;text-align:center">
+            <button class="btn" onclick="gohome()">前往个人二维码</button>
+        </div>
+        <div style="text-align:center;margin-top: 50px;">
+            <img  src="uestc.png" height="150px">
+        </div>
+    </div>
+</body>
+</html>
